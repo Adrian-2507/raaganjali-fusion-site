@@ -1,8 +1,4 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Events from "@/components/Events";
-import Contact from "@/components/Contact";
+import Carousel from "@/components/Carousel";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -12,25 +8,7 @@ const Index = () => {
       <Navigation />
       
       <main>
-        <section id="hero">
-          <Hero />
-        </section>
-        
-        <section id="about">
-          <About />
-        </section>
-        
-        <section id="services">
-          <Services />
-        </section>
-        
-        <section id="events">
-          <Events />
-        </section>
-        
-        <section id="contact">
-          <Contact />
-        </section>
+        <Carousel />
       </main>
       
       <Footer />

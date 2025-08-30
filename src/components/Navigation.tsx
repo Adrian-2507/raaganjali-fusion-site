@@ -1,75 +1,89 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Music } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
               <Music className="h-6 w-6 text-white" />
             </div>
             <span className="text-xl font-bold text-gradient-primary font-playfair">
               Raaganjali
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="text-muted-foreground hover:text-primary transition-colors font-medium"
+            <Link
+              to="/"
+              className={`font-medium transition-colors ${
+                isActive("/") 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-muted-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/about"
+              className={`font-medium transition-colors ${
+                isActive("/about") 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               About
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-muted-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/services"
+              className={`font-medium transition-colors ${
+                isActive("/services") 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               Services
-            </button>
-            <button
-              onClick={() => scrollToSection('events')}
-              className="text-muted-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/events"
+              className={`font-medium transition-colors ${
+                isActive("/events") 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               Events
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-muted-foreground hover:text-primary transition-colors font-medium"
+            </Link>
+            <Link
+              to="/contact"
+              className={`font-medium transition-colors ${
+                isActive("/contact") 
+                  ? "text-primary" 
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               Contact
-            </button>
+            </Link>
           </div>
 
           {/* CTA Button & Mobile Menu Toggle */}
           <div className="flex items-center space-x-4">
-            <Button
-              variant="hero"
-              className="hidden sm:inline-flex"
-              onClick={() => scrollToSection('contact')}
-            >
-              Book Now
-            </Button>
+            <Link to="/contact" className="hidden sm:inline-flex">
+              <Button variant="hero">
+                Book Now
+              </Button>
+            </Link>
             
             <button
               className="md:hidden p-2"
@@ -88,43 +102,66 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-4 pt-4">
-              <button
-                onClick={() => scrollToSection('hero')}
-                className="text-left text-muted-foreground hover:text-primary transition-colors font-medium"
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-left font-medium transition-colors ${
+                  isActive("/") 
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 Home
-              </button>
-              <button
-                onClick={() => scrollToSection('about')}
-                className="text-left text-muted-foreground hover:text-primary transition-colors font-medium"
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-left font-medium transition-colors ${
+                  isActive("/about") 
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 About
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                className="text-left text-muted-foreground hover:text-primary transition-colors font-medium"
+              </Link>
+              <Link
+                to="/services"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-left font-medium transition-colors ${
+                  isActive("/services") 
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 Services
-              </button>
-              <button
-                onClick={() => scrollToSection('events')}
-                className="text-left text-muted-foreground hover:text-primary transition-colors font-medium"
+              </Link>
+              <Link
+                to="/events"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-left font-medium transition-colors ${
+                  isActive("/events") 
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 Events
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-left text-muted-foreground hover:text-primary transition-colors font-medium"
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-left font-medium transition-colors ${
+                  isActive("/contact") 
+                    ? "text-primary" 
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 Contact
-              </button>
-              <Button
-                variant="hero"
-                className="w-full mt-4"
-                onClick={() => scrollToSection('contact')}
-              >
-                Book Now
-              </Button>
+              </Link>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Button variant="hero" className="w-full mt-4">
+                  Book Now
+                </Button>
+              </Link>
             </div>
           </div>
         )}
