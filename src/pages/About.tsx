@@ -1,121 +1,102 @@
-import React from "react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
+import groupPerformance from "@/assets/group-performance.jpg";
 
-const About: React.FC = () => {
+const About = () => {
   return (
-    <div className="bg-navy text-white min-h-screen">
-      {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-navy shadow-lg flex justify-between items-center px-6 py-4">
-        <a href="/" className="flex items-center">
-          <img
-            src="/images/Raaganjali Logo.png"
-            alt="Raaganjali Logo"
-            className="h-12"
-          />
-        </a>
-        <ul className="flex space-x-6">
-          <li>
-            <a href="/" className="hover:text-orange">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="/about" className="text-orange border-b-2 border-orange">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="/services" className="hover:text-orange">
-              Services
-            </a>
-          </li>
-          <li>
-            <a href="/gallery" className="hover:text-orange">
-              Gallery
-            </a>
-          </li>
-          <li>
-            <a href="/events" className="hover:text-orange">
-              Events
-            </a>
-          </li>
-          <li>
-            <a href="/contact" className="hover:text-orange">
-              Contact
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      {/* HEADER */}
-      <header className="text-center py-16 bg-navy-dark">
-        <h1 className="text-4xl font-bold text-orange">Our Team</h1>
-        <p className="text-lg mt-2 text-gray-300">
-          Meet the people who make Raaganjali possible
-        </p>
-      </header>
-
-      {/* CORE MEMBERS */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-orange text-center mb-10">
-          Core Members
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-          {[
-            { name: "Soumya Velpula", role: "President", img: "/images/Soumya[1].jpg" },
-            { name: "Varalakshmi Aripirala", role: "Vice President", img: "/images/Lakshmi[4].jpg" },
-            { name: "Ravichand Velpula", role: "Treasurer", img: "/images/Ravi{5].jpg" },
-            { name: "Srikanth Aripirala", role: "Secretary & PR", img: "/images/Shrikant[1].jpg" },
-            { name: "Adrian Gonsalves", role: "Technical Director", img: "/images/adrian.jpg" },
-          ].map((member, index) => (
-            <div
-              key={index}
-              className="bg-white text-navy p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 text-center max-w-xs"
-            >
-              <img
-                src={member.img}
-                alt={member.name}
-                className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-              />
-              <h3 className="font-semibold text-lg">{member.name}</h3>
-              <p className="text-sm text-gray-600">{member.role}</p>
+    <div className="min-h-screen">
+      <Navigation />
+      
+      <main className="pt-20">
+        <section className="py-20 px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-primary">
+                Who We Are
+              </h1>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Raaganjali is more than just a music group - we are cultural ambassadors, 
+                bringing the soul of India to Finland through the universal language of music.
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* MEMBERS SLIDER */}
-      <section className="bg-white text-navy py-12">
-        <h2 className="text-3xl font-bold text-orange text-center mb-10">
-          Raaganjali Members
-        </h2>
-        <div className="overflow-x-auto whitespace-nowrap px-6">
-          <div className="flex space-x-6">
-            {[
-              { name: "Malay Das", role: "Vocalist", img: "/images/Malai[1].jpg" },
-              { name: "Satvika Aripirala", role: "Vocalist", img: "/images/Satvika{1].jpg" },
-              { name: "Varalakshmi Aripirala", role: "Vocalist", img: "/images/Lakshmi[2].jpg" },
-              { name: "Arshiya", role: "Vocalist", img: "/images/Arshiya[2].jpg" },
-              { name: "Ravichand Velpula", role: "Pianist", img: "/images/Ravi[1].jpg" },
-              { name: "Allan Gonsalves", role: "Percussionist", img: "/images/Allan[1].jpg" },
-              { name: "Saket Aripirala", role: "Guitarist", img: "/images/Saket[1].jpg" },
-              { name: "Sachin", role: "Guitarist", img: "/images/Sachin[1].jpg" },
-            ].map((member, index) => (
-              <div
-                key={index}
-                className="inline-block bg-navy-dark text-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 w-60 text-center"
-              >
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-28 h-28 rounded-full mx-auto mb-4 object-cover"
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+              <div>
+                <img 
+                  src={groupPerformance} 
+                  alt="Raaganjali group performance" 
+                  className="rounded-2xl shadow-2xl w-full h-[400px] object-cover performance-card"
                 />
-                <h3 className="font-semibold">{member.name}</h3>
-                <p className="text-sm text-gray-300">{member.role}</p>
               </div>
-            ))}
+              <div className="space-y-6">
+                <h2 className="text-3xl font-bold">Our Musical Journey</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Founded by passionate musicians who share a deep love for Indian classical traditions 
+                  and contemporary fusion, Raaganjali represents the beautiful harmony that emerges 
+                  when different musical worlds unite.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Our unique sound combines the intricate ragas of Indian classical music with 
+                  modern instrumentation, creating performances that resonate with audiences 
+                  from all cultural backgrounds.
+                </p>
+                <Link to="/services">
+                  <Button variant="hero" className="mt-6">
+                    Learn More About Our Music
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Mission & Vision */}
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <Card className="p-8 cultural-glow">
+                <h3 className="text-2xl font-bold mb-4 text-primary">Our Mission</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To preserve, celebrate, and evolve Indian classical music traditions 
+                  while fostering cross-cultural understanding through the power of music. 
+                  We believe music transcends boundaries and brings people together.
+                </p>
+              </Card>
+              <Card className="p-8 warm-glow">
+                <h3 className="text-2xl font-bold mb-4 text-secondary">Our Vision</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  To be Finland's premier Indian cultural music collective, inspiring 
+                  future generations to embrace their heritage while building bridges 
+                  between diverse communities through artistic excellence.
+                </p>
+              </Card>
+            </div>
+
+            {/* Key Highlights */}
+            <div className="text-center">
+              <h3 className="text-3xl font-bold mb-8">Why Choose Raaganjali?</h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="p-6">
+                  <div className="text-4xl font-bold text-primary mb-2">10+</div>
+                  <p className="text-lg font-semibold mb-2">Years of Experience</p>
+                  <p className="text-muted-foreground">Decades of combined musical expertise</p>
+                </div>
+                <div className="p-6">
+                  <div className="text-4xl font-bold text-secondary mb-2">50+</div>
+                  <p className="text-lg font-semibold mb-2">Cultural Events</p>
+                  <p className="text-muted-foreground">Performances across Finland and beyond</p>
+                </div>
+                <div className="p-6">
+                  <div className="text-4xl font-bold text-accent mb-2">100%</div>
+                  <p className="text-lg font-semibold mb-2">Passion Driven</p>
+                  <p className="text-muted-foreground">Authentic cultural representation</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
+      
+      <Footer />
     </div>
   );
 };
