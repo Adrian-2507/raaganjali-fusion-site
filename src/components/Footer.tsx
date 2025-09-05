@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Music, Mail, Phone, MapPin, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -9,21 +9,21 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
           <div className="md:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-                <Music className="h-8 w-8 text-gold" />
-              </div>
+            <Link to="/" className="flex items-center space-x-3 mb-6">
+              <img
+                src="/images/Raaganjali Logo.png"
+                alt="Raaganjali Logo"
+                className="w-12 h-12 object-contain rounded-full"
+              />
               <span className="text-2xl font-bold font-playfair">Raaganjali</span>
             </Link>
             <p className="text-white/80 mb-6 leading-relaxed max-w-md">
-              Celebrating Indian Music and Culture in Finland. We bring the rich tapestry 
-              of Indian classical and devotional music to life through performance, 
-              collaboration, and community.
+              Celebrating Indian Music and Culture in Finland. We bring the rich
+              tapestry of Indian classical and devotional music to life through
+              performance, collaboration, and community.
             </p>
             <Link to="/contact">
-              <Button variant="gold">
-                Get in Touch
-              </Button>
+              <Button variant="gold">Get in Touch</Button>
             </Link>
           </div>
 
@@ -55,6 +55,12 @@ const Footer = () => {
               >
                 Contact
               </Link>
+              <Link
+                to="/gallery"
+                className="block text-white/80 hover:text-gold transition-colors"
+              >
+                Gallery
+              </Link>
             </div>
           </div>
 
@@ -68,12 +74,49 @@ const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-gold mr-3 flex-shrink-0" />
-                <span className="text-white/80 text-sm">+358 XX XXX XXXX</span>
+                <span className="text-white/80 text-sm">+358 406 720 695</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 text-gold mr-3 flex-shrink-0" />
-                <span className="text-white/80 text-sm">Helsinki, Finland</span>
+                <span className="text-white/80 text-sm">Vantaa, Finland</span>
               </div>
+            </div>
+
+            {/* Socials */}
+            <div className="flex space-x-4 mt-6">
+              <a
+                href="https://www.instagram.com/raaganjalsuomi"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/instagram.svg"
+                  alt="Instagram"
+                  className="w-6 h-6 opacity-80 hover:opacity-100 transition"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/share/1BACGW6q2k/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/facebook.svg"
+                  alt="Facebook"
+                  className="w-6 h-6 opacity-80 hover:opacity-100 transition"
+                />
+              </a>
+              <a
+                href="https://youtube.com/@raaganjalisuomi"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/youtube.svg"
+                  alt="YouTube"
+                  className="w-6 h-6 opacity-80 hover:opacity-100 transition"
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -106,20 +149,19 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-white/60 text-sm mb-4 md:mb-0">
-              © 2024 Raaganjali. All rights reserved.
+              © 2025 Raaganjali. All rights reserved.
             </div>
-            
             <div className="flex items-center space-x-2 text-white/80 text-sm">
               <span>Made with</span>
               <Heart className="h-4 w-4 text-gold" />
               <span>in Finland</span>
             </div>
           </div>
-          
           <div className="text-center mt-6 text-white/60 text-sm">
             <p>
-              Bringing Indian classical traditions and contemporary fusion together • 
-              Celebrating culture through music • Building community through art
+              Bringing Indian classical traditions and contemporary fusion
+              together • Celebrating culture through music • Building community
+              through art
             </p>
           </div>
         </div>
